@@ -1,0 +1,12 @@
+{
+    "name": "promptly-monorepo",
+    "version": "1.0.0",
+    "scripts": {
+        "install:all": "cd client && npm install && cd ../server_api && npm install",
+        "dev": "concurrently \"cd client && npm run dev\" \"cd server_api && npm run dev\"",
+        "build:client": "cd client && npm run build"
+    },
+    "devDependencies": {
+        "concurrently": "^9.2.1"
+    }
+}

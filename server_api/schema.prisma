@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  password  String
+  name      String
+  role      String    @default("user") // 'user' or 'admin'
+  createdAt DateTime  @default(now())
+  projects  Project[]
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  title     String
+  domain    String
+  subDomain String
+  idea      String
+  status    String   @default("draft")
+  content   String? // JSON string of the SRS/Prompts
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

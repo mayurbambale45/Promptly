@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.npm
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database / Storage
+server_api/data.json
+server_api/dev.db
+server_api/dev.db-journal
+
+# Logs
+logs/
+*.log
+
+# Editor / System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
