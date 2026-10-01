@@ -16,6 +16,11 @@ out/
 .env.test.local
 .env.production.local
 
+# Keep example files (not secret)
+!.env.example
+!client/.env.example
+!server_api/.env.example
+
 # Database / Storage
 server_api/data.json
 server_api/dev.db

@@ -10,14 +10,22 @@ export interface User {
 
 export interface Project {
   id: string;
-  title: string;
+  userId: string;
+  title?: string;
+  idea: string;
   domain: Domain;
+  subDomain?: string;
   stage: number;
+  blueprint?: {
+    srs: string;
+    prompts: { title: string; content: string }[];
+    plan: string;
+  };
   createdAt: string;
 }
 
 export interface AppState {
-  currentStage: number; // 0: Role Selection, 0.5: Auth, 1: Intake, ...
+  currentStage: number; // 0: Role Selection, 1: Intake, 2: Clarification, 3: Dashboard, 10: History, 11: Solutions, 12: Pricing, 99: Admin
   user: User | null;
   selectedRole: 'user' | 'admin' | null;
   language: string;
@@ -32,7 +40,7 @@ export interface AppState {
 export interface ClarifyingQuestion {
   id: string;
   text: string;
-  options: string[]; // For lazy users
+  options: string[];
 }
 
 export const LANGUAGES = [
